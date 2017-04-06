@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?> 
-<project name="prueba_ant" basedir="." default="run">
-	<macrodef name="testing">
-		<attribute name="v" default="NOT SET"/>
-		<element name="some-tasks" optional="yes"/>
+<project name="prueba_ant" basedir="." default="compila-todo">
+	<property name="p_script"    value="compila.sh" />
+	<property name="p_origen"    value="${basedir}/src" />
+	<property name="p_usuarioBD" value="eprinsa_3000" />
+	<property name="p_aliasBD"   value="desarrollo" />
+	<property name="p_debug"     value="NO" />
+	<macrodef name="compila">
+		<attribute name="filtro" />
+		<atribute name="tipo" />
 		<sequential>
-			<echo>v is @{v}</echo>
-			<some-tasks/>
+			<echo message="Compilando @{tipo}..." />
+			<echo message="${p_script} ${p_origen} @{filtro} ${p_usuarioBD} ${p_aliasBD} ${p_debug}" />
 		</sequential>
 	</macrodef>
 
-	<testing v="This is v">
-		<some-tasks>
-			<echo>this is a test</echo>
-		</some-tasks>
-	</testing>
-
-	<target name="init">
-		<echo message="Init OK" />
+	<target name="compila-fmb">
+		<compila filtro ="*.fmb" tipo="formularios" />
 	</target>
-	<target name="run" depends="init">
+	<target name="compila-mmb">
+		<compila filtro ="*.mmb" tipo="menús" />
+	</target>
+	<target name="compila-lib">
+		<compila filtro ="*.pll" tipo="librerías" />
+	</target>
+	<target name="compila-filtro">
+		<compila filtro ="${p_filtro}" tipo="ficheros (${p_filtro})" />
+	</target>
+	<target name="compila-todo" depends="compila-fmb,compila-mmb,compila-lib">
 		<echo message="Run OK" />
 	</target>
 </project>
