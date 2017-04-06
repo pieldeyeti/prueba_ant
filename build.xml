@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <project name="prueba_ant" basedir="." default="run">
+	<macrodef name="testing">
+		<attribute name="v" default="NOT SET"/>
+		<element name="some-tasks" optional="yes"/>
+		<sequential>
+			<echo>v is @{v}</echo>
+			<some-tasks/>
+		</sequential>
+	</macrodef>
+
+	<testing v="This is v">
+		<some-tasks>
+			<echo>this is a test</echo>
+		</some-tasks>
+	</testing>
+
 	<target name="init">
 		<echo message="Init OK" />
 	</target>
