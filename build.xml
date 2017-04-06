@@ -1,4 +1,4 @@
-<?xml version="1.0" encondig="utf-8"?> 
+<?xml version="1.0" encoding="utf-8"?> 
 <project name="prueba_ant" basedir="." default="run">
 	<target name="init">
 		<echo message="Init OK" />
