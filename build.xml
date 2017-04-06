@@ -6,5 +6,4 @@
 	<target name="run" depends="init">
 		<echo message="Run OK" />
 	</target>
-
 </project>
