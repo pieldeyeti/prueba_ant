@@ -1,0 +1,10 @@
+<?xml version="1.0" encondig="utf-8"?> 
+<project name="prueba_ant" basedir="." default="run">
+	<target name="init">
+		<echo message="Init OK" />
+	</target>
+	<target name="run" depends="init">
+		<echo message="Run OK" />
+	</target>
+
+</project>
