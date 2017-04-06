@@ -15,16 +15,16 @@
 	</macrodef>
 
 	<target name="compila-fmb">
-		<compila filtro ="*.fmb" tipo="formularios" />
+		<compila filtro="*.fmb" tipo="formularios" />
 	</target>
 	<target name="compila-mmb">
-		<compila filtro ="*.mmb" tipo="menús" />
+		<compila filtro="*.mmb" tipo="menús" />
 	</target>
 	<target name="compila-lib">
-		<compila filtro ="*.pll" tipo="librerías" />
+		<compila filtro="*.pll" tipo="librerías" />
 	</target>
 	<target name="compila-filtro">
-		<compila filtro ="${p_filtro}" tipo="ficheros (${p_filtro})" />
+		<compila filtro="${filtro}" tipo="ficheros (${filtro})" />
 	</target>
 	<target name="compila-todo" depends="compila-fmb,compila-mmb,compila-lib">
 		<echo message="Run OK" />
