@@ -7,7 +7,7 @@
 	<property name="p_debug"     value="NO" />
 	<macrodef name="compila">
 		<attribute name="filtro" />
-		<atribute name="tipo" />
+		<attribute name="tipo" />
 		<sequential>
 			<echo message="Compilando @{tipo}..." />
 			<echo message="${p_script} ${p_origen} @{filtro} ${p_usuarioBD} ${p_aliasBD} ${p_debug}" />
